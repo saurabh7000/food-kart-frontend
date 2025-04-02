@@ -14,12 +14,15 @@ const RestaurantCard = ({ restaurant }: Props) => {
       to={`/detail/${restaurant._id}`}
       className="grid lg:grid-cols-[2fr_3fr] gap-5 group rounded-lg bg-orange-300 text-gray-700 hover:border-2 hover:border-slate-300"
     >
-      <AspectRatio ratio={13 / 8.8}>
-        <img
-          src={restaurant.imageUrl}
-          className="rounded-md w-full object-cover"
-        />
+      <AspectRatio ratio={16 / 9}>
+        <div className="relative w-full h-0 pb-[56.25%]">
+          <img
+            src={restaurant.imageUrl}
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
+          />
+        </div>
       </AspectRatio>
+
       <Box className="p-2">
         <Text className="text-2xl font-bold tracking-tight mb-2 group-hover:underline ">
           {restaurant.restaurantName}
