@@ -3,6 +3,8 @@ import { cartItems, MenuItem } from "../types";
 import MenuCards from "./MenuCards";
 import { useEffect, useState } from "react";
 import { useCreateUpdateCart } from "../Api/CartApi";
+import { useAuth0 } from "@auth0/auth0-react";
+import { toast } from "react-toastify";
 
 type Props = {
   restaurantId: string;
@@ -10,7 +12,18 @@ type Props = {
 };
 
 const MenuItems = ({ restaurantId, menuItems }: Props) => {
+  const { user } = useAuth0();
   const { cartOderItems } = useCreateUpdateCart();
+  const toastInfo = {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  };
   const [cartOrder, setCartOrder] = useState<cartItems[]>([
     {
       restaurantId: restaurantId,
@@ -19,6 +32,10 @@ const MenuItems = ({ restaurantId, menuItems }: Props) => {
   ]);
 
   const updateQuantity = (id: string, menuId: string, change: number) => {
+    if (!user) {
+      toast.error("Login to access this resource", toastInfo as object);
+      return;
+    }
     setCartOrder((prevCart) => {
       const restaurant = prevCart.find(
         (restaurant) => restaurant.restaurantId === id

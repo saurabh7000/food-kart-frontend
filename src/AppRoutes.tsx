@@ -22,8 +22,6 @@ const AppRoutes = () => {
           </Layout>
         }
       />
-
-      <Route path="/auth" element={<AuthCallbackPage />} />
       <Route
         path="/search/:city"
         element={
@@ -33,21 +31,23 @@ const AppRoutes = () => {
         }
       />
 
+      <Route
+        path="/detail/:restaurantId"
+        element={
+          <Layout>
+            <RestaurantDetailPage />
+          </Layout>
+        }
+      />
+
+      <Route path="/auth" element={<AuthCallbackPage />} />
+
       <Route element={<ProtectedRoute />}>
         <Route
           path="/profile"
           element={
             <Layout>
               <UserProfilePage />
-            </Layout>
-          }
-        />
-
-        <Route
-          path="/detail/:restaurantId"
-          element={
-            <Layout>
-              <RestaurantDetailPage />
             </Layout>
           }
         />

@@ -12,7 +12,7 @@ const Header = () => {
     >
       <Flex align={"center"} justify={"center"}>
         <Link to="/">
-          <img src={logo} alt="logo" className="w-24 rounded-md" />
+          <img src={logo} alt="logo" className="w-24 rounded-md shadow-2xl" />
         </Link>
       </Flex>
       <Flex gap="3" align="center" justify={"center"} className="md:hidden">
