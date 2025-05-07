@@ -24,7 +24,7 @@ const RestaurantCard = ({ restaurant }: Props) => {
       </AspectRatio>
 
       <Box className="p-2">
-        <Text className="text-2xl font-bold tracking-tight mb-2 group-hover:underline ">
+        <Text className="text-2xl font-bold tracking-tight mb-2 ">
           {restaurant.restaurantName}
         </Text>
         <Grid id="card-content" className="md:grid-cols-2  gap-5">

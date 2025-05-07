@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <Flex
       align={"center"}
-      className="border-2 border-orange-500 p-2 pr-5  bg-orange-100 justify-between"
+      className="border-2 border-orange-500 p-2 pr-5  bg-orange-300 justify-between"
     >
       <Flex align={"center"} justify={"center"}>
         <Link to="/">
